@@ -18,11 +18,13 @@ For now, there are only Debian Buster (tagged with `latest` and `vX.Y.Z`) and Ub
 ### Basic usage
 Use the following command to start listening for jobs:
 ```shell
+cd docker;
+docker build .;
 docker run -it --name DeltadelOnPremRunner \
     -e RUNNER_NAME=DeltadelOnPremRunner \
     -e GITHUB_ACCESS_TOKEN=github_pat_s3cr3t \
     -e RUNNER_ORGANIZATION_URL=https://github.com/ContentWarnings
-    github-runner
+    -d <hash_from_docker_build_command>;
 ``
 
 ### Using Docker inside your Actions
