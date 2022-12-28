@@ -43,9 +43,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         gettext \
         liblttng-ust0 \
         libcurl4-openssl-dev \
+        python3 \
+        python3-pip \
+        python3-venv \
+        nodejs \
+        npm \
         openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
+
+# Install Black and whatnot
+RUN python3 -m pip install black
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chmod 644 /etc/supervisor/conf.d/supervisord.conf
